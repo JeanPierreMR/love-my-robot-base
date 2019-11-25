@@ -1,7 +1,6 @@
 const express = require("express")
 const path = require ("path")
 
-<<<<<<< HEAD
 const app = express();
 const port = process.env.PORT || "8000";
 
@@ -25,8 +24,3 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 app.use(express.static(path.join(__dirname, "public")));
 
-=======
-app.get('/', (req, res) => res.send('Hello From Express'))
-app.get('/prueba',(req, res) => res.sendFile('prueba.html'))
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
->>>>>>> cb56948156b50f18ebd94978fbd2c63892173591

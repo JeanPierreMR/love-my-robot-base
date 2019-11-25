@@ -3,5 +3,6 @@
         "activityBar.background": "#173040",
         "titleBar.activeBackground": "#20435A",
         "titleBar.activeForeground": "#F9FBFD"
-    }
+    },
+    "python.pythonPath": "C:\\Users\\usuario\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe"
 }
