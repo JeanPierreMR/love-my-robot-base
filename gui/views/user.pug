@@ -12,26 +12,37 @@ block layout-content
             ul.navbar-nav
                 li.nav-item.active
                     a.nav-link(href='#')
-                        | Home 
+                        | About
                         span.sr-only (current)
                 li.nav-item
-                    a.nav-link(href='#') Features
-                li.nav-item
-                    a.nav-link(href='#') Pricing
-                li.nav-item.dropdown
-                    a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown link
-                    .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                        a.dropdown-item(href='#') Action
-                        a.dropdown-item(href='#') Another action
-                        a.dropdown-item(href='#') Something else here
-
+                    a.nav-link(href='#') Coding
+                
   div.View.UserView
-    h1.Banner Bienvenido #{userProfile.nickname}!
+    h1.Banner ¡Bienvenido!
     div.Message
       div.Title
-        h3 Making Us the Best
-        h1 Teammate Profile
-      pre.Details=JSON.stringify(userProfile, null, 2)
+        h3 Elije la opción que desees
+        
+
+        .dropdown
+            button#dropdownMenu.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Actions
+            .dropdown-menu(aria-labelledby='dropdownMenu')
+                a.dropdown-item(href='#') Say
+                a.dropdown-item(href='#') Math
+                a.dropdown-item(href='#') Yes
+        .dropdown
+            button#dropdownMenu.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Actions
+            .dropdown-menu(aria-labelledby='dropdownMenu')
+                a.dropdown-item(href='#') Item
+                a.dropdown-item(href='#') Another item
+                a.dropdown-item(href='#') One more item
+        .dropdown
+            button#dropdownMenu.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown button
+            .dropdown-menu(aria-labelledby='dropdownMenu')
+                a.dropdown-item(href='#') Item
+                a.dropdown-item(href='#') Another item
+                a.dropdown-item(href='#') One more item
+
 
 
   div.NavButtons
