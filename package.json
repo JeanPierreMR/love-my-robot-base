@@ -1,0 +1,30 @@
+{
+  "name": "love-my-robot-base",
+  "version": "1.0.0",
+  "description": "Este repositorio contiene todo lo necesario para que usted inicie el desarrollo del proyecto.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js",
+    "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeanPierreMR/love-my-robot-base.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeanPierreMR/love-my-robot-base/issues"
+  },
+  "homepage": "https://github.com/JeanPierreMR/love-my-robot-base#readme",
+  "devDependencies": {
+    "browser": "^0.2.6",
+    "browser-sync": "^2.26.7",
+    "nodemon": "^2.0.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^2.0.4"
+  }
+}
