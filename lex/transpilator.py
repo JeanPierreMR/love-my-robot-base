@@ -11,7 +11,7 @@ class transpilator:
         self.instructions = {
             #actions
             "PRINT": self.write_print, "WAIT": self.write_wait, "SAY": self.write_say, 
-            "MATH": self.write_math_say,"COUNT":self.write_count, "YES": write_yes, "SOUND": self.write_sound,
+            "MATH": self.write_math_say,"COUNT":self.write_count, "YES": self.write_yes, "SOUND": self.write_sound,
             #drive
             "DRIVE_OFF": self.write_off_charger, "MOVE": self.write_drive, 
             "TURN": self.write_turn, "LIFT": self.write_lift,
@@ -26,6 +26,7 @@ class transpilator:
         self.py_file = open(self.file_name, 'w+')
         self.py_file.write("import cozmo\n")
         self.py_file.write("import time\n")
+        self.py_file.write("from cozmo.util import degrees, distance_mm, speed_mmps\n")
         self.py_file.write("def cozmo_program(robot: cozmo.robot.Robot):\n")
 
     #endregion
@@ -45,10 +46,10 @@ class transpilator:
     #region writter()
     def write_yes(self, arg_list):
         self.write_say(["yes"], wait=False)
-        self.py_file.write("\t"+"robot.move_head(-5)")
-        self.py_file.write("\t"+"robot.move_head(5)")
-        self.py_file.write("\t"+"robot.move_head(-5)")
-        self.py_file.write("\t"+"robot.move_head(0)")
+        self.py_file.write("\t"+"robot.move_head(-5)\n")
+        self.py_file.write("\t"+"robot.move_head(5)\n")
+        self.py_file.write("\t"+"robot.move_head(-5)\n")
+        self.py_file.write("\t"+"robot.move_head(0)\n")
 
     def write_say(self, arg_list, wait = True):
         '''say_text and wait for it to end'''
@@ -66,7 +67,7 @@ class transpilator:
             operation = operation +" "+arg
         print("test")
         print(operation)
-        self.write_say("\t"+[str(eval(operation))]) 
+        self.write_say(["\t"+str(eval(operation))]) 
     def write_count(self, arg_list):
         '''does math by eval'''
         last_number = int(arg_list.pop(0))+1
@@ -111,7 +112,7 @@ class transpilator:
     def write_off_charger(self, arg_list = []):
         self.py_file.write("\t"+"robot.drive_off_charger_contacts().wait_for_completed()\n")
     def write_lift(self, arg_list):
-        self.py_file.write("\t"+"robot.say_text('"+str(int(arg_list[0])/100)+"').wait_for_completed()\n")
+        self.py_file.write("\t"+"robot.say_text('"+str(int(arg_list[0]))+"').wait_for_completed()\n")
     #endregion
     
     #region animations
@@ -177,10 +178,10 @@ class transpilator:
     
 if __name__ == "__main__":
 
-    simple_code = " print x as 1 2\n math 1 + 4\nyes\n sound"
-
+    simple_code = " SAY Hello\n MATH 1+2\n MATH (5/2) * 4\n COUNT 3 \n YES \n SOUND \n DRIVE_OFF \n MOVE 150 50\n Turn 90 100\n Lift 0.8 \n DROP\n LIGHT BLUE\nPICKUP 3\nDROP"
 
 
     transpilator1 = transpilator()
     transpilator1.transpile(simple_code)
     transpilator1.run()
+#most add default velocity for move
