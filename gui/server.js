@@ -12,8 +12,12 @@ app.get("/", (req,res) => {
     res.render("index", {title: "Home"})
 });
 app.get("/user", (req, res) => {
-    res.render("user", {title: "Profile", userProfile: {nickname: "Auth0"}})
+    res.render("user", {title: "Profile", })
     
+});
+
+app.get("/about", (req,res) => {
+    res.render("about", {title: "About"})
 });
 
 
