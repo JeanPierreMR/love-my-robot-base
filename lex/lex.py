@@ -1,21 +1,27 @@
-from flask import Flask, request
-
-
+from flask import Flask, request 
+import json
+import transpilator
 app = Flask(__name__)
+transpiler = transpilator.transpilator()
 
 
-@app.route("/")
-def index():
-    return "Hello from Flask!"
+@app.route("/lex", methods=["POST"])
+def postdata():
+    try:
+        code = (request.get_json()["lmr"])
+        print(code)
+        transpiler.transpile(code)
+        transpiler.run()
+        return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
+    except Exception as e:
+        print(e)
+        return json.dumps({'success':False}), 400, {'ContentType':'application/json'} 
 
-@app.route("/compile", methods = ['GET', 'POST'])
-def compilation():
-    request.form.get('subir')
-    pass
+@app.route("/", methods=["POST"])
+def api():
+    print("Lex On")
 
-@app.route("/execute", methods = ['GET', 'POST'])
-def compilation():
-    pass
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
