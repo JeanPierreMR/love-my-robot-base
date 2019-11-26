@@ -112,7 +112,7 @@ class transpilator:
     def write_off_charger(self, arg_list = []):
         self.py_file.write("\t"+"robot.drive_off_charger_contacts().wait_for_completed()\n")
     def write_lift(self, arg_list):
-        self.py_file.write("\t"+"robot.say_text('"+str(int(arg_list[0]))+"').wait_for_completed()\n")
+        self.py_file.write("\t"+"robot.set_lift_height("+str(arg_list[0])+").wait_for_completed()\n")
     #endregion
     
     #region animations

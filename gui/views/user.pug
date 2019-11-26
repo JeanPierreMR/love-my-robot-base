@@ -16,33 +16,36 @@ block layout-content
                         span.sr-only (current)
                 li.nav-item
                     a.nav-link(href='#') Coding
-                
-  div.View.UserView
-    h1.Banner ¡Bienvenido!
-    div.Message
-      div.Title
-        h3 Elije la opción que desees
-        
 
-        .dropdown
-            button#dropdownMenu.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Actions
-            .dropdown-menu(aria-labelledby='dropdownMenu')
-                a.dropdown-item(href='#') Say
-                a.dropdown-item(href='#') Math
-                a.dropdown-item(href='#') Yes
-        .dropdown
-            button#dropdownMenu.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Actions
-            .dropdown-menu(aria-labelledby='dropdownMenu')
-                a.dropdown-item(href='#') Item
-                a.dropdown-item(href='#') Another item
-                a.dropdown-item(href='#') One more item
-        .dropdown
-            button#dropdownMenu.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown button
-            .dropdown-menu(aria-labelledby='dropdownMenu')
-                a.dropdown-item(href='#') Item
-                a.dropdown-item(href='#') Another item
-                a.dropdown-item(href='#') One more item
-
+  .container
+    script(type='text/javascript' src='scripting.js')
+    p
+        label(for='new-task') Add Item
+        input#new-task(type='text')
+        button Add
+    h3 Todo
+    ul#incomplete-tasks
+    li
+        input(type='checkbox')
+        label Pay Bills
+        input(type='text')
+        button.edit Edit
+        button.delete Delete
+    li.editMode
+        input(type='checkbox')
+        label Go Shopping
+        input(type='text' value='Go Shopping')
+        button.edit Edit
+        button.delete Delete
+    h3 Completed
+    ul#completed-tasks
+    li
+        input(type='checkbox' checked='')
+        label See the Doctor
+        input(type='text')
+        button.edit Edit
+        button.delete Delete
+    
 
 
   div.NavButtons
