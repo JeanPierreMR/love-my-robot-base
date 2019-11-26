@@ -36,22 +36,12 @@ function recorrido(){
         codigojunto = codigojunto + "\n"
     }
     var doc = prompt(codigojunto); 
+
     
-
-    var http = new XMLHttpRequest();
-    var url = 'http://localhost:3000';
-    var params = codigojunto;
-    http.open('POST', url, true);
-
-    //Send the proper header information along with the request
-    http.setRequestHeader('Content-type', 'application/string');
-
-    http.onreadystatechange = function() {//Call a function when the state changes.
-        if(http.readyState == 4 && http.status == 200) {
-            alert(http.responseText);
-        }
-    }
-    http.send(params);
+    const url='http://0.0.0.0:5000/json_submit';
+    //const url = 'https://reqres.in/api/users';
+    $.post('/load_code', { lmr: codigojunto })
+    
 }
 
 
