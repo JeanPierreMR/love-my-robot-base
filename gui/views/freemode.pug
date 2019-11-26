@@ -1,0 +1,15 @@
+extends layout
+
+block layout-content
+  div.View.FreemodeView
+    h1.Banner FREEMODE
+    div.Message3
+        div.Title
+          h3 Ingresa tu texto
+        form(action='/action_page.php')
+            input(type='email', name='email')
+            input(type='submit')
+
+    div.NavButtons
+      a(href="/user")
+        div.NavButton Regresar

@@ -20,6 +20,14 @@ app.get("/about", (req,res) => {
     res.render("about", {title: "About"})
 });
 
+app.get("/manual", (req,res) => {
+    res.render("manual", {title: "Manual"})
+});
+
+app.get("/freemode", (req,res) => {
+    res.render("freemode", {title: "Freemode"})
+});
+
 
 app.listen(port,  ()=> {
 console.log('Listening to requests on http://localhost:${port}');
