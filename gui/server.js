@@ -33,15 +33,13 @@ app.set("view engine", "pug");
 app.use(express.static(path.join(__dirname, "public")));
 
 
-
+//sends the code to lex
 app.post('/load_code', function (req, res) { 
-    console.log(req.body.code)
-    axios.post('http://0.0.0.0:5000/', {
-        code: req.body.code
+    axios.post('http://0.0.0.0:5000/lex', {
+        lmr: req.body.lmr
     })
     .then((res) => {
-        //console.log(`statusCode: ${res.statusCode}`)
-        //console.log(res)
+        console.log(`statusCode: ${res.statusCode}`)
     })
     .catch((error) => {
         console.error(error)
