@@ -3,7 +3,7 @@ extends layout
 block layout-content
   div.View.ManualView
     h1.Banner MANUAL
-    div.Message
+    div.Message4
       div.Title
         h3 ¿Cómo usar
          h1 LOVE-MY-ROBOT?
@@ -19,11 +19,13 @@ block layout-content
       span.Details 2.Yes: Selecciona y Cozmo dirá "yes".
       span.Details 3.Count: En el espacio "Parámetro(s)" cambia "1,2,3"
       span.Details    por el número mayor al que deseas que Cozmo cuente.
-      span.Details 5. Wait: En el espacio "Parámetro(s)" cambia "5sec"
+      span.Details 4. Wait: En el espacio "Parámetro(s)" cambia "5sec"
       span.Details  por la cantidad de segundos que deseas que Cozmo espere.
-     
-
-
-    div.NavButtons
-      a(href="/user")
-        div.NavButton Regresar
+    
+    div.footer
+        div.NavButtons
+        a(href="/manual2")
+            div.NavButton Drive|Animations
+        div.NavButtons
+        a(href="/user")
+            div.NavButton Regresar

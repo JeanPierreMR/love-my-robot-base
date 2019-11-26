@@ -30,6 +30,9 @@ app.get("/manual", (req,res) => {
 app.get("/freemode", (req,res) => {
     res.render("freemode", {title: "Freemode"})
 });
+app.get("/manual2", (req,res) => {
+    res.render("manual2", {title: "Manual"})
+});
 
 
 app.listen(port,  ()=> {

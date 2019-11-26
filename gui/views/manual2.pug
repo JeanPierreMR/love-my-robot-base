@@ -1,0 +1,38 @@
+extends layout
+
+block layout-content
+  div.View.Manual2View
+    h1.Banner MANUAL
+    div.Message
+      div.Title
+        h3 Drive
+      span.Details 1.Drive_off: Cozmo sale del cargador.
+      span.Details 2.Move: En el espacio "Parámetro(s)" debes ingresar con 
+      span.Details  números la distancia y velocidad separados por un espacio, 
+      span.Details  un ejemplo podría ser: 5 10 .
+      span.Details 3.Turn: En el espacio "Parámetro(s)" debes ingresar con
+      span.Details  números los grados y velocidad separados por un espacio, 
+      span.Details  un ejemplo podría ser: 180 10 .
+      span.Details 4.Lift: En el espacio "Parámetro(s)" debes ingresar con
+      span.Details  números del 0 al 1, cuanto levantará sus "brazos" Cozmo.
+    div.Message5
+      div.Title
+        h3 Animations
+      span.Details 1.Light: Cozmo encenderá la luz.
+       span.Details 2.Cube:Light: En el espacio "Parámetro(s)" debes ingresar con 
+      span.Details números el número de dado que deseas (1-3) y color que deseas
+      span.Details  que encienda separados por un espacio,
+      span.Details un ejemplo podría ser: 1 red .
+      span.Details 3.Pickup: En el espacio "Parámetro(s)" escribe el número de
+      span.Details    dado(1-3) que deseas que Cozmo recoja, ejemplo: 1 .
+      span.Details 4.Drop: Cozmo soltará el cubo.
+      span.Details 5.Roll_Cube: En el espacio "Parámetro(s)" escribe el número de
+      span.Details    dado(1-3) que deseas que Cozmo role, ejemplo: 2 .
+      span.Details 6.Wheelie: En el espacio "Parámetro(s)" escribe el número de
+      span.Details    dado(1-3) con el que deseas que Cozmo se volteé, ejemplo: 3 .
+     
+
+
+    div.NavButtons
+      a(href="/user")
+        div.NavButton Regresar

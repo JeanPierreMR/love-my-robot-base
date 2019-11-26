@@ -168,11 +168,15 @@ a {
       background-size: cover;
     }
     .ManualView {
-      background: url("https://beta.techcrunch.com/wp-content/uploads/2016/10/cozmo_4_360-png.gif") left bottom;
+      background: url("https://media.giphy.com/media/26n7aRCUIdiFBk1a0/giphy.gif") left bottom;
       background-size: cover;
     }
     .FreemodeView {
       background: url("https://the-gadgeteer.com/wp-content/uploads/2017/11/Anki_Cozmo_6.jpg") left bottom;
+      background-size: cover;
+    }
+    .Manual2View {
+      background: url("https://s.aolcdn.com/hss/storage/midas/fec85766a44a704701a8912ea3237ce4/204005061/Cozmo+blocks.gif") left bottom;
       background-size: cover;
     }
 
@@ -182,8 +186,11 @@ a {
       border-bottom: var(--ui-shawdow-border);
       box-shadow: var(--ui-shawdow);
       align-self: flex-end;
-      justify-content: space-between;
-      display: grid;
+      position: fixed;
+      right:0;
+      top: 140;
+      width: 40%;
+      background-color:rgba(100%,0,0,0);
     }
     
     .Message2 > .Title {
@@ -220,6 +227,57 @@ a {
       text-align: left;
       line-height: 1.5em;
     }
-  
+    .footer {
+      position: fixed;
+      left: 550;
+      bottom: 0;
+      width: 100%;
+      background-color:rgba(100%,0,0,0);
+    }
+    .Message4 {
+      background: white;
+      padding: 10px;
+      border-bottom: var(--ui-shawdow-border);
+      box-shadow: var(--ui-shawdow);
+      align-self: flex-end;
+      position: fixed;
+      left:0;
+      top: 140;
+      width: 30%;
+      background-color:rgba(100%,0,0,0);
+    }
+    
+    .Message4 > .Title {
+      padding-bottom: 20px;
+    }
+    
+    .Message4 > .Details {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5em;
+    }
+    .Message5 {
+      background: white;
+      padding: 10px;
+      border-bottom: var(--ui-shawdow-border);
+      box-shadow: var(--ui-shawdow);
+      align-self: flex-end;
+      position: fixed;
+      right:0;
+      top: 105;
+      width: 40%;
+      background-color:rgba(100%,0,0,0);
+    }
+    
+    .Message5 > .Title {
+      padding-bottom: 20px;
+    }
+    
+    .Message5 > .Details {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      line-height: 1.5em;
+    }
   
     
