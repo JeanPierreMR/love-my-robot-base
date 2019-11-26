@@ -1,5 +1,3 @@
-npm init -y
-npm i -D nodemon
-npm i express
-npm i pug
-npm i -D browser-sync
+express
+pug
+nodemon
