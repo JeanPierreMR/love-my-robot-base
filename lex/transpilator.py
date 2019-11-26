@@ -41,14 +41,17 @@ class transpilator:
             printing_str = printing_str +" "+arg
         self.py_file.write("\t"+"print('"+printing_str+"')\n")
     def write_wait(self, secs):
-        self.py_file.write("\t"+"time.sleep("+ str(secs)+ ")")
+        self.py_file.write("\t"+"time.sleep("+ str(secs)+ ")\n")
     #endregion
     #region writter()
     def write_yes(self, arg_list):
-        self.write_say(["yes"], wait=False)
-        self.py_file.write("\t"+"robot.move_head(-5)\n")
-        self.py_file.write("\t"+"robot.move_head(5)\n")
-        self.py_file.write("\t"+"robot.move_head(-5)\n")
+        self.write_say(["yes"],wait=False)
+        self.py_file.write("\t"+"robot.move_head(2)\n")
+        self.write_wait(1)
+        self.py_file.write("\t"+"robot.move_head(-2)\n")
+        self.write_wait(1)
+        self.py_file.write("\t"+"robot.move_head(2)\n")
+        self.write_wait(1)
         self.py_file.write("\t"+"robot.move_head(0)\n")
 
     def write_say(self, arg_list, wait = True):
@@ -58,7 +61,7 @@ class transpilator:
             lines = lines +" "+arg
         if(wait):
             self.py_file.write("\t"+"robot.say_text('"+lines+"').wait_for_completed()\n")
-        elif(wait):
+        else:
             self.py_file.write("\t"+"robot.say_text('"+lines+"')\n")
     def write_math_say(self, arg_list):
         '''does math by eval'''
@@ -112,7 +115,7 @@ class transpilator:
     def write_off_charger(self, arg_list = []):
         self.py_file.write("\t"+"robot.drive_off_charger_contacts().wait_for_completed()\n")
     def write_lift(self, arg_list):
-        self.py_file.write("\t"+"robot.say_text('"+str(int(arg_list[0]))+"').wait_for_completed()\n")
+        self.py_file.write("\t"+"robot.set_lift_height("+str(arg_list[0])+").wait_for_completed()\n")
     #endregion
     
     #region animations
@@ -125,11 +128,22 @@ class transpilator:
     def write_pick_cube(self, arg_list):
         self.py_file.write("\t"+"robot.pickup_object(robot.world.get_light_cube("+arg_list[0]+"), num_retries=2).wait_for_completed()\n")
     def write_drop_cube(self, arg_list):
-        self.lift([0])
+        self.write_lift([0])
     def write_roll_cube(self, arg_list):
-        self.py_file.write("\t"+"robot.roll_cube(robot.world.get_light_cube("+arg_list[0]+").wait_for_completed()\n")
+        self.py_file.write("\t"+"robot.roll_cube(robot.world.get_light_cube("+arg_list[0]+"), num_retries=2).wait_for_completed()\n")
     def write_wheelie(self, arg_list):
-        self.py_file.write("\t"+"robot.pop_a_wheelie(robot.world.get_light_cube("+arg_list[0]+").wait_for_completed()\n")
+        self.py_file.write("\t"+"robot.pop_a_wheelie(robot.world.get_light_cube("+arg_list[0]+")).wait_for_completed()\n")
+        self.write_say(["Oh oh, nop"],wait=True)
+        self.py_file.write("\t"+"robot.play_anim_trigger(cozmo.anim.Triggers.CodeLabSurprise).wait_for_completed()\n")
+        self.py_file.write("\t"+"robot.drive_wheels(-100, 100, l_wheel_acc=999, r_wheel_acc=999, duration=0.3)\n")
+        self.py_file.write("\t"+"robot.drive_wheels(100, -100, l_wheel_acc=999, r_wheel_acc=999, duration=0.6)\n")
+        self.py_file.write("\t"+"robot.drive_wheels(-100, 100, l_wheel_acc=999, r_wheel_acc=999, duration=0.3)\n")
+        self.py_file.write("\t"+"robot.play_anim_trigger(cozmo.anim.Triggers.CodeLabWhee1).wait_for_completed()\n")
+        self.py_file.write("\t"+"robot.set_lift_height(1.0, accel=100.0, max_speed=100.0).wait_for_completed()\n")
+        self.py_file.write("\t"+"robot.set_lift_height(0.0, accel=100.0, max_speed=100.0).wait_for_completed()\n")
+        self.py_file.write("\t"+"robot.drive_wheels(-200, -200, l_wheel_acc=9999, r_wheel_acc=9999, duration=0.5)\n")
+        self.write_wait(1)
+        self.write_say(["Ooo YES"],wait=True)
     #endregion
 
     #endregion
@@ -164,6 +178,7 @@ class transpilator:
         for line in instructionlist:
             try:
                 instruction = line.pop(0).upper()
+                print(instruction)
                 self.instructions[instruction](line)
             except Exception as e:
                 print(e)
@@ -178,7 +193,9 @@ class transpilator:
     
 if __name__ == "__main__":
 
-    simple_code = " SAY Hello\n MATH 1+2\n MATH (5/2) * 4\n COUNT 3 \n YES \n SOUND \n DRIVE_OFF \n MOVE 150 50\n Turn 90 100\n Lift 0.8 \n DROP\n LIGHT BLUE\nPICKUP 3\nDROP"
+    #SAY Hello\n MATH 1+2\n MATH (5/2) * 4\n COUNT 3 \n SOUND \n DRIVE_OFF \n MOVE 150 50\n Turn 90 100\n LIGHT BLUE\n Lift 0.5 \n DROP
+    #simple_code = " DROP\n YES \nPICKUP 3\n ROLL_CUBE 3\n WHEELIE 3"
+    simple_code = "WHEELIE 3"
 
 
     transpilator1 = transpilator()
