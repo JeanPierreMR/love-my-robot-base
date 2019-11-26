@@ -12,6 +12,7 @@ def postdata():
         print(code)
         transpiler.transpile(code)
         transpiler.run()
+        transpiler.update_file()
         return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
     except Exception as e:
         print(e)
