@@ -3,17 +3,17 @@ extends layout
 block layout-content
 
   nav.navbar.navbar-expand-lg.navbar-light.bg-light
-        a.navbar-brand(href='#') Navbar
+        a.navbar-brand(href='#') Cozmo
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
             span.navbar-toggler-icon
         #navbarNavDropdown.collapse.navbar-collapse
             ul.navbar-nav
                 li.nav-item.active
                     a.nav-link(href='#')
-                        | Home 
+                        | About
                         span.sr-only (current)
                 li.nav-item
-                    a.nav-link(href='#') Features
+                    a.nav-link(href="/about") Authors
                 
   div.View.UserView
     h1.Banner ¡Bienvenido!
