@@ -1,3 +1,9 @@
+npm install express
+npm install axios
+npm install pug
+node server.js
+
+py lex.py
 
 
-quizas le puede servir [https://docs.docker.com/compose/gettingstarted/](https://docs.docker.com/compose/gettingstarted/)
+corre en http://127.0.0.1:8000/user
