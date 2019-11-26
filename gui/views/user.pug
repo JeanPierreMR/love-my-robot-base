@@ -2,8 +2,6 @@ extends layout
 
 block layout-content
 
-
-
   nav.navbar.navbar-expand-lg.navbar-light.bg-light
         a.navbar-brand(href='#') Navbar
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
@@ -12,42 +10,72 @@ block layout-content
             ul.navbar-nav
                 li.nav-item.active
                     a.nav-link(href='#')
-                        | About
+                        | Home 
                         span.sr-only (current)
                 li.nav-item
-                    a.nav-link(href='#') Coding
+                    a.nav-link(href='#') Features
+                
+  div.View.UserView
+    h1.Banner ¡Bienvenido!
+    div.Message
+      div.Title
+        h3 Elije la opción que desees
 
-  .container
-  
-    p
-        label(for='new-task') Add Item
-        input#new-task(type='text')
-        button Add
-    h3 Todo
-    ul#incomplete-tasks
-    li
-        input(type='checkbox')
-        label Pay Bills
-        input(type='text')
-        button.edit Edit
-        button.delete Delete
-    li.editMode
-        input(type='checkbox')
-        label Go Shopping
-        input(type='text' value='Go Shopping')
-        button.edit Edit
-        button.delete Delete
-    h3 Completed
-    ul#completed-tasks
-    li
-        input(type='checkbox' checked='')
-        label See the Doctor
-        input(type='text')
-        button.edit Edit
-        button.delete Delete
-    
+        .dropdown
+            button#dropdownMenu.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Actions
+            .dropdown-menu(aria-labelledby='dropdownMenu')
+                a.dropdown-item.table-add(onclick="add('Say','Something')") Say
+                a.dropdown-item.table-add(onclick="add('Math','1+1')") Math
+                a.dropdown-item.table-add(onclick="add('Yes','--')") Yes
+                a.dropdown-item.table-add(onclick="add('Count','1,2,3')") Count
+                a.dropdown-item.table-add(onclick="add('Sound','--')") Sound
+                a.dropdown-item.table-add(onclick="add('Wait','5sec')") Wait
+        .dropdown
+            button#dropdownMenu.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Drive
+            .dropdown-menu(aria-labelledby='dropdownMenu')
+                a.dropdown-item.table-add(onclick="add('Drive_off','--')") Drive_off
+                a.dropdown-item.table-add(onclick="add('Move','5 10')") Move (Distancia Velocidad)
+                a.dropdown-item.table-add(onclick="add('Turn','180 5')") Turn(Grados Velocidad)
+                a.dropdown-item.table-add(onclick="add('Lift','0.5')") Lift(0-1)
+        .dropdown
+            button#dropdownMenu.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Animations
+            .dropdown-menu(aria-labelledby='dropdownMenu')
+                a.dropdown-item.table-add(onclick="add('Light','Green')") Light
+                a.dropdown-item.table-add(onclick="add('Cube_Light','2 Red')") Cube_light ((1-3) Color)
+                a.dropdown-item.table-add(onclick="add('Pickup','3')") Pickup(1-3)
+                a.dropdown-item.table-add(onclick="add('Drop','--')") Drop
+                a.dropdown-item.table-add(onclick="add('Roll_Cube','1')") Roll_Cube(1-3)
+                a.dropdown-item.table-add(onclick="add('Wheelie','2')") Wheelie(1-3)
 
+
+  .card
+        h3.card-header.text-center.font-weight-bold.text-uppercase.py-4 Código
+        .card-body
+            .table-editable
+                span.table-add
+                    a.text-success(href='#!')
+                        i.fas.fa-plus.fa-2x(aria-hidden='true')
+                table#table.table.table-bordered.table-responsive-md.table-striped.text-center
+                    thead
+                        tr
+                            th.text-center Instrucción
+                            th.text-center Parámetro(s)
+                            th.text-center Remove
+                    tbody
+ 
+
+  div.NavButtons
+      a.btn.btn-primary(onclick="recorrido()") Ejecutar
 
   div.NavButtons
       a(href="/")
         div.NavButton Salir
+
+            script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+            script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
+            script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
+            script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js')
+            script(src='extensions/editable/bootstrap-table-editable.js')
+            script(src='/path/to/jquery.min.js')
+            script(src='/path/to/bootstrap.min.js')
+            script(src='/script.js')
